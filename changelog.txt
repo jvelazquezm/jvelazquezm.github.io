@@ -11,3 +11,5 @@
 	-Se han eliminado las preguntas sobre la version de firmware del dispostivo y sobre el protocolo de transporte y red
 10. Modificada la scrollbar para tener un aspecto que encaja más con el estilo de la aplicación
 11. Añadido botón para imprimir el formulario de respuestas y el de vulnerabilidades
+
+12. La aplicación pasa de ejecutarse en local a estar subida mediante github pages a la url https://jvelazquezm.github.io/
