@@ -1,0 +1,13 @@
+1. Ahora se puede avanzar con enter en la aplicacion
+2. Se puede volver a atrás en cualquier pregunta sin necesidad de tener que responder la actual
+3. En la parte de vulnerabilidades la disposicion se adapta al tamaño de la ventana
+4. Imagenes se cargan en local
+5. Se ha adptado la altura de la ventana a la aplicacion
+6. Se ha añadido botón para volver a la sección de resultados, pudiendo modificar algunos datos y comprobar como afecta esto al gráfico de vulnerabilidades
+7. Mayor dinamismo en la aplicación, ahora algunas preguntas no aparecerán si se responden negativamente otras, como las de acceso a la nube, sensores o acceso remoto
+8. Añadido un mensaje de alerta que no te deja avanzar si existe alguna pregunta sin responder
+9. Se han eliminado algunas preguntas asi como modificado otras para aportar mayor facilidad a la hora de responder
+	-La pregunta de botones físicos ahora tiene opciones en vez de respuesta libre
+	-Se han eliminado las preguntas sobre la version de firmware del dispostivo y sobre el protocolo de transporte y red
+10. Modificada la scrollbar para tener un aspecto que encaja más con el estilo de la aplicación
+11. Añadido botón para imprimir el formulario de respuestas y el de vulnerabilidades
