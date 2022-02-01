@@ -191,7 +191,12 @@ export default class App extends React.Component {
     const {preguntaActual,pasos,terminado,enviado,comienzo,revisando,vulnerabilidades,detallado,width} = this.state;
     return (
       <div className="app">
-        <Encabezado/>
+        <Encabezado
+          comienzo={comienzo}
+          terminado={terminado}
+          enviado={enviado}
+          index={preguntaActual}
+        />
         {comienzo === false ? 
         <Presentacion/>
         :terminado === false ? 
@@ -235,6 +240,12 @@ export default class App extends React.Component {
             comenzar={this.comenzar}
             detallado={detallado}
             detallar ={this.detallar}
+            revisar={this.revisar}
+            buscar={this.buscar}
+            vulnerabilidades={vulnerabilidades}
+						buscar={this.buscar}
+						detallado={detallado}
+						width={width}
           />
       </div>
     );

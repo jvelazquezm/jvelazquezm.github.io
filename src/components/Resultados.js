@@ -7,15 +7,15 @@ export default class Resultados extends React.Component {
         const {revisar,buscar} = this.props;
         return (
             <div className="resultados" >
-                <div style={{display: "none"}}>
+                {/* <div style={{display: "none"}}>
                     <PrintResultados 
                         ref={el => (this.componentRef = el)}
                         revisar={revisar}
                         buscar={buscar}
                     />
-                    </div>
-                <div className="print">
-                    <h1 className="h1res">Respuestas</h1>
+                    </div> */}
+                {/* <div className="print">
+                    
                     <ReactToPrint
                         trigger={() => {
                         // NOTE: could just as easily return <SomeComponent />. Do NOT pass an `onClick` prop
@@ -24,9 +24,9 @@ export default class Resultados extends React.Component {
                         }}
                         content={() => this.componentRef}
                     />
-                </div>
+                </div> */}
 
-                <div className="conjunto1">
+                <div className="conjunto">
                     <div className="fase">
                         <h3>Firmware</h3>
                     </div>

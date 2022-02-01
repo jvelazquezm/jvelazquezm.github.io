@@ -26,7 +26,7 @@ exports.pasos =   [
     "opciones":["WiFi","BLE","6LoWPAN","ZigBee","RFID","NFC","Z-Wave","Otros"],
     "tipo":"Check",
     "fase":"General",
-    "foto":"3.jpg",
+    "foto":"3.png",
     "alias":"coms"
   },
   /*{
@@ -87,7 +87,7 @@ exports.pasos =   [
     "opciones":["Sí","No"],
     "tipo":"Opciones",
     "fase":"Especifica",
-    "foto":"9.jpg",
+    "foto":"9.png",
     "categoria":["Gestión de recursos de energía","Entretenimiento","Salud y bienestar","Utilidad para la red","Interfaz máquina humano","Ayuda para los cuidados de la casa","Seguridad","Sensores"],
     "alias":"envnube"
   },
@@ -153,7 +153,7 @@ exports.pasos =   [
     "opciones":["ON/OFF","Reset","Volumen","Silenciar micrófono","Otros"],
     "tipo":"Check",
     "fase":"Especifica",
-    "foto":"15.jpg",
+    "foto":"15.png",
     "categoria":["Gestión de recursos de energía","Entretenimiento","Salud y bienestar","Utilidad para la red","Interfaz máquina humano","Ayuda para los cuidados de la casa","Seguridad","Sensores"],
     "alias":"boton"
   },
@@ -164,7 +164,7 @@ exports.pasos =   [
     "opciones":["Sí","No"],
     "tipo":"Opciones",
     "fase":"Especifica",
-    "foto":"16.jpg",
+    "foto":"16.png",
     "categoria":["Gestión de recursos de energía","Salud y bienestar","Utilidad para la red","Interfaz máquina humano","Ayuda para los cuidados de la casa","Seguridad","Sensores"],
     "alias":"remoto"
   },
@@ -186,7 +186,7 @@ exports.pasos =   [
     "opciones":["Sí","No"],
     "tipo":"Opciones",
     "fase":"Especifica",
-    "foto":"18.jpg",
+    "foto":"18.png",
     "categoria":["Gestión de recursos de energía","Salud y bienestar","Utilidad para la red","Interfaz máquina humano","Ayuda para los cuidados de la casa","Seguridad","Sensores"],
     "alias":"opensource"
   },

@@ -1,10 +1,11 @@
 import React from 'react';
-
-
+import ReactToPrint from 'react-to-print';
+import PrintResultados from './PrintResultados';
+import PrintVulnerabilidades from './PrintVulnerabilidades';
 
 export default class Navegacion extends React.Component {
 	render() {
-		const {index,pasos,revisando,comienzo,terminado,enviado,detallado} = this.props;
+		const {index,pasos,revisando,comienzo,terminado,enviado,detallado,revisar,buscar, vulnerabilidades, width} = this.props;
 		return <div className="actionbar">
 			{comienzo === false ?
 				<button className="actions" onClick={this.props.comenzar}>Comenzar</button>
@@ -18,10 +19,49 @@ export default class Navegacion extends React.Component {
 					</>
 					: 
 					enviado === false ?
+					<>
+
+						<div style={{display: "none"}}>
+                    	<PrintResultados 
+							ref={el => (this.componentRef = el)}
+							revisar={revisar}
+							buscar={buscar}
+                    	/>
+                    	</div>
+						<>
+							<ReactToPrint
+								trigger={() => {
+								// NOTE: could just as easily return <SomeComponent />. Do NOT pass an `onClick` prop
+								// to the root node of the returned component as it will be overwritten.
+								return <button className="actions" href="#">Imprimir resultados</button>;
+								}}
+								content={() => this.componentRef}
+							/>
+						</>
 						<button className="actions" onClick={this.props.comprobar}>Enviar respuestas</button>
+					</>
 						:
 						<>
-							<button className="actions" onClick={this.props.volver}>Volver</button> 
+							<div style={{display: "none"}}>
+								<PrintVulnerabilidades
+									ref={el => (this.componentRef = el)}
+									vulnerabilidades={vulnerabilidades}
+									buscar={buscar}
+									detallado={detallado}
+									width={width}
+								/>
+							</div>
+							<button className="actions" onClick={this.props.volver}>Volver</button>
+							<>
+								<ReactToPrint
+									trigger={() => {
+									// NOTE: could just as easily return <SomeComponent />. Do NOT pass an `onClick` prop
+									// to the root node of the returned component as it will be overwritten.
+									return <button className="actions" href="#">Imprimir resultados</button>;
+									}}
+									content={() => this.componentRef}
+								/>
+							</> 
 							{detallado === false ? <button className="actions" onClick={this.props.detallar}>Mostrar detalles</button> : <button className="actions" onClick={this.props.detallar}>Mostrar menos</button>}	 
 						</>
 			}
