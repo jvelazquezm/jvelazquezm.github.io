@@ -5,7 +5,7 @@ export default class Encabezado extends React.Component {
 		const {comienzo,terminado, enviado,index} = this.props;
 
 		return <div className="navbar">
-			<i className="fa fa-question-circle"></i>
+			<i className="fas fa-question-circle"></i>
 			{comienzo === false ? "App Metodología" 
 			:
 			terminado === false ? "Pregunta " + (index + 1)

@@ -11,6 +11,7 @@ export default class Cuerpo extends React.Component {
         <Pregunta 
             index={index}
             pregunta={paso.pregunta}
+            ayuda={paso.ayudapregunta}
           />
           <Foto
             foto = {paso.foto}

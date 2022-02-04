@@ -1,5 +1,5 @@
 import React from 'react' ;
-
+import help from '../assets/question-circle-solid.svg'
 
 export default class Respuesta extends React.Component {
     constructor(props) {
@@ -26,6 +26,9 @@ export default class Respuesta extends React.Component {
 				tipo === "Opciones" ?
 				
 					opciones.map((opcion,i,j) => {
+						let ayuda = paso.ayuda || [];
+						let pop;
+						ayuda === [] ? pop = [] : (pop = ayuda[i] || []);
 						return(
 							<>{(opcion === respuesta)?
 							<div className="radio" key={i+j+index}>
@@ -38,9 +41,16 @@ export default class Respuesta extends React.Component {
 									defaultChecked
 									onKeyDown={this.handleKeyDown}
 								/>
-								<label htmlFor={opcion}>
-									{opcion}
-								</label><br/>
+								<label htmlFor={opcion} className="label">
+									{opcion}					
+								</label>
+								{ (ayuda !== [] && pop.length !== 0)  ?
+									<button className="popup2" onClick={()=>this.popUp(i)}>
+										<img src={help}/>
+										<span className="popuptext" id={i}>{paso.ayuda[i]}</span>
+									</button>
+									: <></>
+								}
 							</div>
 							: 
 							<div className="radio" key={i+j+index}>
@@ -52,9 +62,17 @@ export default class Respuesta extends React.Component {
 									onClick ={()=> this.props.responder(index, opcion)}
 									onKeyDown={this.handleKeyDown}
 								/>
-								<label htmlFor={opcion}>
-									{opcion}
-								</label><br/>
+								<label htmlFor={opcion} className="label">
+									{opcion}	
+								</label>
+								{ (ayuda !== [] && pop.length !== 0)  ?
+									<button className="popup2" onClick={()=>this.popUp(i)}>
+										<img src={help}/>
+										<span className="popuptext" id={i}>{paso.ayuda[i]}</span>
+									</button>
+									: <></>
+								}
+
 							</div>
 							}</>
 						)
@@ -63,6 +81,9 @@ export default class Respuesta extends React.Component {
 				:
 			
 					opciones.map((opcion,i,j) => {
+						let ayuda = paso.ayuda || [];
+						let pop;
+						ayuda === [] ? pop = [] : (pop = ayuda[i] || []);
 						return(
 							<>{(respuesta.includes(opcion))?
 							<div className="checkbox" key={i+j+index}>
@@ -77,7 +98,14 @@ export default class Respuesta extends React.Component {
 								/>
 								<label htmlFor={opcion}>
 									{opcion}
-								</label><br/>
+								</label>
+								{ (ayuda !== [] && pop.length !== 0) ?
+									<button className="popup2" onClick={()=>this.popUp(i)}>
+										<img src={help}/>
+										<span className="popuptext" id={i}>{paso.ayuda[i]}</span>
+									</button>
+									: <></>
+								}
 							</div>
 							: 
 							<div className="checkbox" key={i+j+index}>
@@ -91,7 +119,14 @@ export default class Respuesta extends React.Component {
 								/>
 								<label htmlFor={opcion}>
 									{opcion}
-								</label><br/>
+								</label>
+								{ (ayuda !== [] && pop.length !== 0)  ?
+									<button className="popup2" onClick={()=>this.popUp(i)}>
+										<img src={help}/>
+										<span className="popuptext" id={i}>{paso.ayuda[i]}</span>
+									</button>
+									: <></>
+								}
 							</div>
 							}</>
 						)
@@ -139,6 +174,9 @@ export default class Respuesta extends React.Component {
 
         }
       }
-
+	  popUp = (index) => {
+        var popup = document.getElementById(index);
+        popup.classList.toggle("show");
+      }
 
 }

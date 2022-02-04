@@ -32,7 +32,7 @@ body {
   padding-left: 1%;
   
 }
-.fa.fa-question-circle{
+.fas.fa-question-circle{
   padding-right: 1%;
 }
 .presentacion{
@@ -386,6 +386,141 @@ width: 100vw;
   animation: fadeIn 1s;
 }
 
+.popup2 {
+
+  
+  position: relative;
+  display: inline-block;
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  border-radius: 50%;
+ 
+  border:none;
+  background:  var(--medio);
+  font-family: "Arial Black", sans-serif;
+  font-size: 0.5em;
+
+
+  width: 30px;
+}
+.popup2:hover {
+
+
+  width: 30px;
+  -webkit-box-shadow: 0px 5px 40px -10px rgba(0,0,0,0.57);
+  -moz-box-shadow: 0px 5px 40px -10px rgba(0,0,0,0.57);
+  box-shadow: 5px 40px -10px rgba(0,0,0,0.57);
+  transition: all 0.4s ease 0s;
+}
+
+/* The actual popup */
+.popup2 .popuptext {
+  visibility: hidden;
+  width:400px;
+  background-color: var(--oscuro);
+  color: var(--claro);
+  text-align:justify;
+  text-align-last: center;
+  border-radius: 6px;
+  padding: 8px 8px;
+
+  position: absolute;
+  z-index: 1;
+  bottom: 125%;
+  left: 50%;
+  margin-left: -208px;
+}
+
+/* Popup arrow */
+.popup2 .popuptext::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: #555 transparent transparent transparent;
+}
+
+/* Toggle this class - hide and show the popup */
+.popup2 .show {
+  visibility: visible;
+  -webkit-animation: fadeIn 1s;
+  animation: fadeIn 1s;
+}
+
+.popup3 {
+
+  
+  position: relative;
+  display: inline-block;
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  border-radius: 50%;
+ 
+  border:none;
+  background:  var(--medio);
+  font-family: "Arial Black", sans-serif;
+  font-size: 0.5em;
+
+
+  width: 30px;
+}
+.popup3:hover {
+
+
+  width: 30px;
+  -webkit-box-shadow: 0px 5px 40px -10px rgba(0,0,0,0.57);
+  -moz-box-shadow: 0px 5px 40px -10px rgba(0,0,0,0.57);
+  box-shadow: 5px 40px -10px rgba(0,0,0,0.57);
+  transition: all 0.4s ease 0s;
+}
+
+/* The actual popup */
+.popup3 .popuptext {
+  visibility: hidden;
+  width:650px;
+  background-color: var(--oscuro);
+  color: var(--claro);
+  text-align:justify;
+  text-align-last: center;
+  border-radius: 6px;
+  padding: 8px 8px;
+
+  position: absolute;
+  z-index: 1;
+  bottom: 125%;
+  left: 50%;
+  margin-left: -333px;
+}
+
+/* Popup arrow */
+.popup3 .popuptext::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: #555 transparent transparent transparent;
+}
+
+/* Toggle this class - hide and show the popup */
+.popup3 .show {
+  visibility: visible;
+  -webkit-animation: fadeIn 1s;
+  animation: fadeIn 1s;
+}
+
+
 /* SCROLLBAR */
 ::-webkit-scrollbar{
   width:10px;
@@ -412,5 +547,9 @@ width: 100vw;
   all:unset;
 
 }
+/* .label{
+  border-style: solid;
+} */
+
 
 
