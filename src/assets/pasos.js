@@ -17,7 +17,9 @@ exports.pasos =   [
     "tipo":"Opciones",
     "fase":"General",
     "foto":"2.png",
-    "alias":"actualizado"
+    "alias":"actualizado",
+    "warning":"¡Cuidado! Tu dispositivo se encuentra desactualizado.",
+    "consejo":"Debes actualizar tu dispositivo cuanto antes"
   },
   {
     "index":3,
@@ -37,7 +39,8 @@ exports.pasos =   [
     "tipo":"Check",
     "fase":"General",
     "foto":"3.png",
-    "alias":"coms"
+    "alias":"coms",
+    "warning":"¡Cuidado! Tu dispositivo emplea el protocolo de comunicación RFID, el cuál resulta muy inseguro ante ataques físicos y a las etiquetas que utilizan.",
   },
   /*{
     "index":4,
@@ -58,7 +61,8 @@ exports.pasos =   [
     "tipo":"Opciones",
     "fase":"General",
     "foto":"5.jpg",
-    "alias":"seguridad"
+    "alias":"seguridad",
+    "warning":"¡Cuidado! Tu dispositivo no cuenta con protocolos de seguridad, la información que envías y que recibes puede estar en peligro y ser obtenida por terceras personas."
   },
   {
     "index":6,
@@ -68,7 +72,8 @@ exports.pasos =   [
     "tipo":"Opciones",
     "fase":"General",
     "foto":"6.jpg",
-    "alias":"directamente"
+    "alias":"directamente",
+    "warning":"¡Cuidado! Te en cuenta que tu dispositivo se conecta directamente a la red de tu hogar por lo que es más probable que sea objetivo de ataques que buscan infiltrarse en tu red."
   },
   {
     "index":7,
@@ -88,7 +93,8 @@ exports.pasos =   [
     "tipo":"Opciones",
     "fase":"General",
     "foto":"7.png",
-    "alias":"categoria"
+    "alias":"categoria",
+    "warning":["¡Cuidado! Tu dispositivo trata directamente con datos sensibles. La categoría "," está formada por un conjunto de dispositivos que tratan con información sensible y tu privacidad puede verse puesta en peligro."]
   },
   {
     "index":8,
@@ -110,7 +116,9 @@ exports.pasos =   [
     "fase":"Especifica",
     "foto":"9.png",
     "categoria":["Gestión de recursos de energía","Entretenimiento","Salud y bienestar","Utilidad para la red","Interfaz máquina humano","Ayuda para los cuidados de la casa","Seguridad","Sensores"],
-    "alias":"envnube"
+    "alias":"envnube",
+    "warning":"¡Cuidado! Ten en cuenta que tu dispositivo envía datos a la nube por lo que trata de darle al dispositivo la información estrictamente necesaria para su funcionamiento.",
+    "consejo":"Revisa los ajustes de privacidad de tu dispositivo para comprobar que datos está enviando a la nube"
   },
     {
     "index":10,
@@ -121,7 +129,9 @@ exports.pasos =   [
     "fase":"Especifica",
     "foto":"10.jpg",
     "categoria":["Entretenimiento","Utilidad para la red","Seguridad"],
-    "alias":"entradas"
+    "alias":"entradas",
+    "warning":"¡Cuidado! El protocolo USB es muy vulnerable si un atacante consigue insertar una memoria USB infectada en tu dispositivo.",
+    "consejo":"No permitas que nadie desconocido inserte una memoria USB en tu dispositivo"
   },
   /*{
     "index":11,
@@ -155,7 +165,9 @@ exports.pasos =   [
     "fase":"Especifica",
     "foto":"13.jpeg",
     "categoria":["Gestión de recursos de energía","Salud y bienestar","Utilidad para la red","Interfaz máquina humano","Seguridad","Sensores"],
-    "alias":"microcam"
+    "alias":"microcam",
+    "warning":["¡Cuidado! Tu dispositivo cuenta con un micrófono. Un atacante podría obtener audios que recoje el micrófono donde puede haber información privada. Además, si el dispositivo cuenta con reconocimiento por voz, el atacante podría ejecutar órdenes sobre este.","¡Cuidado! Tu dispositivo cuenta con una cámara. Si un atacante se hace con el poder de tu dispositivo puede obtener imágenes y vídeos tuyos y de tu hogar sin que te des cuenta."],
+    "consejo":["Silencia el dispositivo o apágalo cuando no necesites de su uso. No situes otros dispositivos que reproduzcan audio cerca de tu dispositivo","Cubre la cámara o apaga el dispositivo cuando no necesites de su uso"]
   },
     {
     "index":13,
@@ -167,7 +179,8 @@ exports.pasos =   [
     "fase":"Especifica",
     "foto":"14.png",
     "categoria":["Gestión de recursos de energía","Entretenimiento","Utilidad para la red","Interfaz máquina humano","Ayuda para los cuidados de la casa","Seguridad"],
-    "alias":"actuadores"
+    "alias":"actuadores",
+    "warning":"¡Cuidado! Tu dispositivo tiene actuadores. Si un atacante toma el control del dispositivo, podrá ejectutar órdenes no deseadas sobre estos actuadores."
   },
     {
     "index":14,
@@ -189,7 +202,9 @@ exports.pasos =   [
     "fase":"Especifica",
     "foto":"16.png",
     "categoria":["Gestión de recursos de energía","Salud y bienestar","Utilidad para la red","Interfaz máquina humano","Ayuda para los cuidados de la casa","Seguridad","Sensores"],
-    "alias":"remoto"
+    "alias":"remoto",
+    "warning":"¡Cuidado! Tu dispositivo es accesible de manera remota, por lo que un atacante podría llegar a controlar tu dispositivo a distancia.",
+    "consejo":"Si es posible, desactiva el acceso remoto en caso de que no vayas a utilizarlo"
   },
   {
     "index":16,
@@ -201,7 +216,9 @@ exports.pasos =   [
     "fase":"Especifica",
     "foto":"17.jpg",
     "categoria":["Gestión de recursos de energía","Salud y bienestar","Utilidad para la red","Interfaz máquina humano","Ayuda para los cuidados de la casa","Seguridad","Sensores"],
-    "alias":"dobleaut"
+    "alias":"dobleaut",
+    "warning":"¡Cuidado! Tu dispositivo no cuenta con factor de doble autenticación. Este es una barrera para frenar a un atacante que se haga con tus credenciales de acceso.",
+    "consejo":"Si es posible, actívalo en los ajustes de tu dispositivo"
   },
   {
     "index":17,
@@ -213,7 +230,8 @@ exports.pasos =   [
     "fase":"Especifica",
     "foto":"18.png",
     "categoria":["Gestión de recursos de energía","Salud y bienestar","Utilidad para la red","Interfaz máquina humano","Ayuda para los cuidados de la casa","Seguridad","Sensores"],
-    "alias":"opensource"
+    "alias":"opensource",
+    "warning":"¡Cuidado! La app de tu dispositivo no está basada en open source. Las aplicaciones de código abierto están respaldas por la comunidad y es más improbable encontrar en ellas fallos de seguridad."
   },
   {
     "index":18,
@@ -225,6 +243,8 @@ exports.pasos =   [
     "fase":"Especifica",
     "foto":"19.jpg",
     "categoria":["Gestión de recursos de energía","Salud y bienestar","Utilidad para la red","Interfaz máquina humano","Seguridad","Sensores"],
-    "alias":"web"
+    "alias":"web",
+    "warning":"¡Cuidado! Hoy en día, las web que no utilizan el protocolo HTTPS son muy vulnerables.",
+    "consejo":"Evita acceder via web a la aplicación en la medida de lo posible"
   }
 ]

@@ -4,9 +4,12 @@ import Encabezado from './Encabezado';
 import Cuerpo from './Cuerpo';
 import Navegacion from './Navegacion';
 import Resultados from './Resultados';
+import Results from './Results';
 import Vulnerabilidades from './Vulnerabilidades';
 import Presentacion from './Presentacion'
 import {pasos} from '../assets/pasos.js';
+//import {pasos} from '../assets/pasos_ingles.js';
+
 export default class App extends React.Component {
 
   constructor(props){
@@ -25,6 +28,8 @@ export default class App extends React.Component {
       revisando:false,
       detallado:false,
       vulnerabilidades: [0,0,0,0,0,0],
+      titulos:["Firmware","Comunicaciones","Categoría","Tratamiento de datos","Interfaz física","Accesibilidad","App Metodología","Pregunta ","Resultados","Vulnerabilidades encontradas"],
+
       height: window.innerHeight, 
       width: window.innerWidth
     };
@@ -51,13 +56,13 @@ export default class App extends React.Component {
       return {...paso,
         respuesta : index === i ? respuesta : paso.respuesta}
     });
-    const categoria = pasos.find(paso => paso.pregunta === "Indique la categoría del dispositivo");
+    const categoria = pasos.find(paso => (paso.pregunta === this.buscar("categoria").pregunta));
     if(index >= pasos.indexOf(categoria)){
       const preguntasGenerales = pasos.filter(paso => ((paso.fase === "General")));
 
-      const nube = pasos.find(paso => paso.pregunta === "¿Está conectado a una nube?") ||[];
-      const sensores = pasos.find(paso => paso.pregunta === "¿Cuenta con algún tipo de sensor?") || [];
-      const remoto = pasos.find(paso => paso.pregunta === "¿Se puede acceder remotamente al dispositivo a través de una aplicación?") || []
+      const nube = pasos.find(paso => paso.pregunta === this.buscar("conexnube").pregunta) ||[];
+      const sensores = pasos.find(paso => paso.pregunta === this.buscar("sensores").pregunta) || [];
+      const remoto = pasos.find(paso => paso.pregunta === this.buscar("remoto").pregunta) || [];
       const conjunto = [nube,sensores,remoto]
       let preguntasCategoría = pasos.filter(paso => ((paso.fase === "Especifica")));
 
@@ -74,8 +79,7 @@ export default class App extends React.Component {
             else
               preguntasCategoría = preguntasCategoría.filter(paso => paso.index !== pregunta.index+1);
           else{
-            if(pregunta.respuesta === "Sí" && !preguntasCategoría.some(paso => paso.index === pregunta.index+1)){
-              //preguntasCategoría.push(this.state.pasosiniciales[pregunta.index])
+            if((pregunta.respuesta === "Sí" || pregunta.respuesta === "Yes") && !preguntasCategoría.some(paso => paso.index === pregunta.index+1)){
               preguntasCategoría.push(this.state.pasosiniciales.find(paso => paso.index === (pregunta.index+1)))
               if(i===2){
                 preguntasCategoría.push(this.state.pasosiniciales.find(paso => paso.index === (pregunta.index+2)))
@@ -111,20 +115,20 @@ export default class App extends React.Component {
   comprobar = () => {
     const {pasos} = this.state;
     const vulnerabilidades = [0,0,0,0,0,0]
-    if (this.buscar("actualizado").respuesta === "No" || this.buscar("actualizado").respuesta === "No lo sé") vulnerabilidades[0]++;
+    if (this.buscar("actualizado").respuesta === this.buscar("actualizado").opciones[1] || this.buscar("actualizado").respuesta === this.buscar("actualizado").opciones[1]) vulnerabilidades[0]++;
     if (this.buscar("coms").respuesta.includes("RFID")) vulnerabilidades[1]++;
-    if (this.buscar("seguridad").respuesta ==="Ninguno" || this.buscar("seguridad").respuesta === "No lo sé") vulnerabilidades[1]++;
-    if (this.buscar("directamente").respuesta === "Directamente") vulnerabilidades[1]++;
-    if ((this.buscar("categoria").respuesta === "Salud y bienestar") || (this.buscar("categoria").respuesta === "Interfaz máquina humano") || (this.buscar("categoria").respuesta ==="Seguridad") || (this.buscar("categoria").respuesta ==="Sensores")) vulnerabilidades[2]++;
-    if (this.buscar("envnube").respuesta === "Sí") vulnerabilidades[3]++;
+    if (this.buscar("seguridad").respuesta ===this.buscar("seguridad").opciones[3] || this.buscar("seguridad").respuesta === this.buscar("seguridad").opciones[4]) vulnerabilidades[1]++;
+    if (this.buscar("directamente").respuesta === this.buscar("directamente").opciones[0]) vulnerabilidades[1]++;
+    if ((this.buscar("categoria").respuesta === this.buscar("categoria").opciones[2]) || (this.buscar("categoria").respuesta === this.buscar("categoria").opciones[4]) || (this.buscar("categoria").respuesta ===this.buscar("categoria").opciones[6]) || (this.buscar("categoria").respuesta ===this.buscar("categoria").opciones[7])) vulnerabilidades[2]++;
+    if (this.buscar("envnube").length !== 0 && this.buscar("envnube").respuesta === this.buscar("envnube").opciones[0]) vulnerabilidades[3]++;
     if (this.buscar("entradas").length !==0 && this.buscar("entradas").respuesta.includes("USB")) vulnerabilidades[4]++;
-    if (this.buscar("microcam").length !==0 && this.buscar("microcam").respuesta.includes("Cámara")) vulnerabilidades[4]++;
-    if (this.buscar("microcam").length !==0 && this.buscar("microcam").respuesta.includes("Micrófono")) vulnerabilidades[4]++;
-    if (this.buscar("actuadores").length !==0 && this.buscar("actuadores").respuesta === "Sí") vulnerabilidades[4]++;
-    if (this.buscar("remoto").length !==0 && this.buscar("remoto").respuesta === "Sí") vulnerabilidades[5]++;
-    if (this.buscar("dobleaut").length !==0 && this.buscar("dobleaut").respuesta === "No") vulnerabilidades[5]++;
-    if (this.buscar("opensource").length !==0 && this.buscar("opensource").respuesta === "No") vulnerabilidades[5]++;
-    if (this.buscar("web").length !==0 && this.buscar("web").respuesta === "Sí, pero no utiliza HTTPS") vulnerabilidades[5]++;
+    if (this.buscar("microcam").length !==0 && this.buscar("microcam").respuesta.includes(this.buscar("microcam").opciones[1])) vulnerabilidades[4]++;
+    if (this.buscar("microcam").length !==0 && this.buscar("microcam").respuesta.includes(this.buscar("microcam").opciones[0])) vulnerabilidades[4]++;
+    if (this.buscar("actuadores").length !==0 && this.buscar("actuadores").respuesta === this.buscar("actuadores").opciones[0]) vulnerabilidades[4]++;
+    if (this.buscar("remoto").length !==0 && this.buscar("remoto").respuesta === this.buscar("remoto").opciones[0]) vulnerabilidades[5]++;
+    if (this.buscar("dobleaut").length !==0 && this.buscar("dobleaut").respuesta === this.buscar("dobleaut").opciones[1]) vulnerabilidades[5]++;
+    if (this.buscar("opensource").length !==0 && this.buscar("opensource").respuesta === this.buscar("opensource").opciones[1]) vulnerabilidades[5]++;
+    if (this.buscar("web").length !==0 && this.buscar("web").respuesta === this.buscar("web").opciones[1]) vulnerabilidades[5]++;
 
     const preguntasSinRespuesta = pasos.filter((paso,i) => (paso.respuesta === "" || paso.respuesta.length === 0))
     if(preguntasSinRespuesta.length !== 0)
@@ -136,6 +140,7 @@ export default class App extends React.Component {
         enviado: true,
         vulnerabilidades: vulnerabilidades
       })
+      console.log(vulnerabilidades)
     }
 
 
@@ -188,7 +193,7 @@ export default class App extends React.Component {
   
 
   render(){
-    const {preguntaActual,pasos,terminado,enviado,comienzo,revisando,vulnerabilidades,detallado,width} = this.state;
+    const {preguntaActual,pasos,terminado,enviado,comienzo,revisando,vulnerabilidades,detallado,width, titulos} = this.state;
     return (
       <div className="app">
         <Encabezado
@@ -196,6 +201,7 @@ export default class App extends React.Component {
           terminado={terminado}
           enviado={enviado}
           index={preguntaActual}
+          titulos={titulos}
         />
         {comienzo === false ? 
         <Presentacion/>
@@ -214,6 +220,7 @@ export default class App extends React.Component {
             <Resultados
               revisar={this.revisar}
               buscar={this.buscar}
+              titulos={titulos}
             />
           : 
           <Vulnerabilidades
@@ -221,6 +228,7 @@ export default class App extends React.Component {
             buscar={this.buscar}
             detallado={detallado}
             width={width}
+            titulos={titulos}
           />}
           </>}
          {

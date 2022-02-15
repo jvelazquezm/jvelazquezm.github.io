@@ -2,17 +2,17 @@ import React from 'react';
 
 export default class Encabezado extends React.Component {
 	render(){
-		const {comienzo,terminado, enviado,index} = this.props;
+		const {comienzo,terminado, enviado,index, titulos} = this.props;
 
 		return <div className="navbar">
 			<i className="fas fa-question-circle"></i>
-			{comienzo === false ? "App Metodología" 
+			{comienzo === false ? titulos[6] 
 			:
-			terminado === false ? "Pregunta " + (index + 1)
+			terminado === false ? titulos[7] + (index + 1)
 			: 
-			enviado   === false ? "Resultados"
+			enviado   === false ? titulos[8]
 			:
-			"Vulnerabilidades encontradas"
+			titulos[9]
 			
 			}
 			

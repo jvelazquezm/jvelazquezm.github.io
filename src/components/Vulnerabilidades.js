@@ -7,7 +7,7 @@ export default class Resultados extends React.Component {
         this.state = {
             data:
             {
-                labels: ['Firmware', 'Comunicaciones', 'Categoría', 'Tratamiento de datos', 'Interfaz física', 'Accesibilidad'],
+                labels: [this.props.titulos[0], this.props.titulos[1], this.props.titulos[2], this.props.titulos[3], this.props.titulos[4], this.props.titulos[5]],
                 datasets: [{
                     type: 'radar',
                     label: 'Nº de vulnerabilidades',
@@ -77,7 +77,9 @@ export default class Resultados extends React.Component {
         };
       }
       render() {
-        const {detallado,width,buscar,vulnerabilidades} = this.props;
+        const {detallado,width,buscar,vulnerabilidades,titulos} = this.props;
+        const notfound = "No se han encontrado vulnerabilidades en este apartado";
+        const vercons = "Ver consejo de buenas prácticas de seguridad"
         let disposicion;
         width > 1000 ? disposicion="horiz" : disposicion="vert";
         return (
@@ -98,103 +100,104 @@ export default class Resultados extends React.Component {
                     <div className={"detalles"+disposicion}>
                     <div className="conjunto">
                         <div className="fase">
-                            <h3>Firmware</h3>
+                            <h3>{titulos[0]}</h3>
                         </div>
                         <div className="resultado">
-                            {(buscar("actualizado").respuesta === "No" || buscar("actualizado").respuesta === "No lo sé") ? <p><div>¡Cuidado! Tu dispositivo se encuentra desactualizado.</div>
-                                                                 <button className="popup" onClick={()=>this.popUp("1")}> Ver consejo de buenas prácticas de seguridad
-                                                                    <span className="popuptext" id="1">Debes actualizar tu dispositivo cuanto antes</span>
+                            {(buscar("actualizado").respuesta === buscar("actualizado").opciones[1] || buscar("actualizado").respuesta === buscar("actualizado").opciones[2]) ? <p><div>{buscar("actualizado").warning}</div>
+                                                                 <button className="popup" onClick={()=>this.popUp("1")}>{vercons}
+                                                                    <span className="popuptext" id="1">{buscar("actualizado").consejo}</span>
                                                                 </button></p> : ""}
 
-                            {vulnerabilidades[0] === 0 ? <p>No se han encontrado vulnerabilidades en este apartado</p>:""}
+                            {vulnerabilidades[0] === 0 ? <p>{notfound}</p>:""}
                         </div>
                     </div>
                     <div className="conjunto">
                         <div className="fase">
-                            <h3>Comunicaciones</h3>
+                            <h3>{titulos[1]}</h3>
                         </div>
                         <div className="resultado">
-                            {buscar("coms").respuesta.includes("RFID") ? <p><div>¡Cuidado! Tu dispositivo emplea el protocolo de comunicación RFID, el cuál resulta muy inseguro ante ataques físicos y a las etiquetas que utilizan.</div>
-                                                                </p> : ""}
-                            {(buscar("seguridad").respuesta === "Ninguno" || buscar("seguridad").respuesta === "No lo sé")? <p><div>¡Cuidado! Tu dispositivo no cuenta con protocolos de seguridad, la información que envías y que recibes puede estar en peligro y ser obtenida por terceras personas.</div></p> : ""}
-                            {buscar("directamente").respuesta === "Directamente" ? <p><div>¡Cuidado! Te en cuenta que tu dispositivo se conecta directamente a la red de tu hogar por lo que es más probable que sea objetivo de ataques que buscan infiltrarse en tu red.</div></p> : ""}
-                            {vulnerabilidades[1] === 0 ? <p>No se han encontrado vulnerabilidades en este apartado</p>:""}
+                            {buscar("coms").respuesta.includes("RFID") ? <p><div>{buscar("coms").warning}</div></p> : ""}
+                            {(buscar("seguridad").respuesta === buscar("seguridad").opciones[3] || buscar("seguridad").respuesta === buscar("seguridad").opciones[4])? <p><div>{buscar("seguridad").warning}</div></p> : ""}
+                            {buscar("directamente").respuesta === buscar("directamente").opciones[0] ? <p><div>{buscar("directamente").warning}</div></p> : ""}
+                            {vulnerabilidades[1] === 0 ? <p>{notfound}</p>:""}
                         </div>
                     </div>
                     <div className="conjunto">
                         <div className="fase">
-                            <h3>Categoría</h3>
+                            <h3>{titulos[2]}</h3>
                         </div>
                         <div className="resultado">
-                            {(buscar("categoria").respuesta === "Salud y bienestar") || (buscar("categoria").respuesta === "Interfaz máquina humano") || (buscar("categoria").respuesta ==="Seguridad") || (buscar("categoria").respuesta ==="Sensores") ? <p className="ultimo">¡Cuidado! Tu dispositivo trata directamente con datos sensibles. La categoría {buscar("categoria").respuesta} está formada por un conjunto de dispositivos que tratan con información sensible y tu privacidad puede verse puesta en peligro.</p> : ""}
-                            {vulnerabilidades[2] === 0 ? <p>No se han encontrado vulnerabilidades en este apartado</p>:""}
+                            {(buscar("categoria").respuesta === buscar("categoria").opciones[2]) || (buscar("categoria").respuesta === buscar("categoria").opciones[4]) || (buscar("categoria").respuesta ===buscar("categoria").opciones[6]) || (buscar("categoria").respuesta ===buscar("categoria").opciones[7]) ? <p className="ultimo">{buscar("categoria").warning[0] + buscar("categoria").respuesta + buscar("categoria").warning[1]}</p> : ""}{/*Salud y bienestar, Interfaz maquina humano, seguridad y sensores*/}
+                            {vulnerabilidades[2] === 0 ? <p>{notfound}</p>:""}
                         </div>
                     </div>
                     <div className="conjunto">
                         <div className="fase">
-                            <h3>Tratamiento de datos</h3>
+                            <h3>{titulos[3]}</h3>
                         </div>
                         <div className="resultado">
-                        {buscar("envnube").respuesta === "Sí" ? <p><div>¡Cuidado! Ten en cuenta que tu dispositivo envía datos a la nube por lo que trata de darle al dispositivo la información estrictamente necesaria para su funcionamiento.</div>
-                                                                <button className="popup" onClick={()=>this.popUp("8")}> Ver consejo de buenas prácticas de seguridad
-                                                                    <span className="popuptext" id="8">Revisa los ajustes de privacidad de tu dispositivo para comprobar que datos está enviando a la nube</span>
-                                                                </button></p> : ""}
-                        {vulnerabilidades[3] === 0 ? <p>No se han encontrado vulnerabilidades en este apartado</p>:""}
+                        {buscar("envnube").length !== 0 ?
+                            buscar("envnube").respuesta === buscar("envnube").opciones[0] ? <p><div>{buscar("envnube").warning}</div>
+                            <button className="popup" onClick={()=>this.popUp("9")}> {vercons}
+                                <span className="popuptext" id="9">{buscar("envnube").consejo}</span>
+                            </button></p> : ""
+                        : ""}
+                        {vulnerabilidades[3] === 0 ? <p>{notfound}</p>:""}
                         </div>
                     </div>
                     <div className="conjunto">
                         <div className="fase">
-                            <h3>Interfaz física</h3>
+                            <h3>{titulos[4]}</h3>
                         </div>
                         <div className="resultado">
                             {buscar("entradas").length !==0 ?
-                                <>{buscar("entradas").respuesta.includes("USB") ? <p><div>¡Cuidado! El protocolo USB es muy vulnerable si un atacante consigue insertar una memoria USB infectada en tu dispositivo.</div>
-                                                                                        <button className="popup" onClick={()=>this.popUp("10")}> Ver consejo de buenas prácticas de seguridad
-                                                                                            <span className="popuptext" id="10">No permitas que nadie desconocido inserte una memoria USB en tu dispositivo</span>
+                                <>{buscar("entradas").respuesta.includes("USB") ? <p><div>{buscar("entradas").warning}</div>
+                                                                                        <button className="popup" onClick={()=>this.popUp("10")}> {vercons}
+                                                                                            <span className="popuptext" id="10">{buscar("entradas").consejo}</span>
                                                                                         </button></p> : ""}</>
                                 :<></>}
                             {buscar("microcam").length !==0 ?
-                                <>{buscar("microcam").respuesta.includes("Cámara") ? <p><div>¡Cuidado! Tu dispositivo cuenta con una cámara. Si un atacante se hace con el poder de tu dispositivo puede obtener imágenes y vídeos tuyos y de tu hogar sin que te des cuenta.</div>
-                                    <button className="popup" onClick={()=>this.popUp("12")}> Ver consejo de buenas prácticas de seguridad
-                                        <span className="popuptext" id="12">Cubre la cámara o apaga el dispositivo cuando no necesites de su uso</span>
+                                <>{buscar("microcam").respuesta.includes(buscar("microcam").opciones[1]) ? <p><div>{buscar("microcam").warning[1]}</div>
+                                    <button className="popup" onClick={()=>this.popUp("12")}> {vercons}
+                                        <span className="popuptext" id="12">{buscar("microcam").consejo[1]}</span>
                                     </button></p> : ""}</>
                                 :<></>}
                             {buscar("microcam").length !==0 ?
-                                <>{buscar("microcam").respuesta.includes("Micrófono") ? <p><div>¡Cuidado! Tu dispositivo cuenta con un micrófono. Un atacante podría obtener audios que recoje el micrófono donde puede haber información privada. Además, si el dispositivo cuenta con reconocimiento por voz, el atacante podría ejecutar órdenes sobre este.</div>
-                                    <button className="popup" onClick={()=>this.popUp("12.5")}> Ver consejo de buenas prácticas de seguridad
-                                        <span className="popuptext" id="12.5">Silencia el dispositivo o apágalo cuando no necesites de su uso. No situes otros dispositivos que reproduzcan audio cerca de tu dispositivo.</span>
+                                <>{buscar("microcam").respuesta.includes(buscar("microcam").opciones[0]) ? <p><div>{buscar("microcam").warning[0]}</div>
+                                    <button className="popup" onClick={()=>this.popUp("12.5")}> {vercons}
+                                        <span className="popuptext" id="12.5">{buscar("microcam").consejo[0]}</span>
                                     </button></p>: ""}</>
                                 :<></>}
                             {buscar("actuadores").length !==0 ?
-                                <>{buscar("actuadores").respuesta === "Sí" ? <p><div>¡Cuidado! Tu dispositivo tiene actuadores. Si un atacante toma el control del dispositivo, podrá ejectutar órdenes no deseadas sobre estos actuadores</div></p> : ""}</>
+                                <>{buscar("actuadores").respuesta === buscar("actuadores").opciones[0] ? <p><div>{buscar("actuadores").warning}</div></p> : ""}</>
                                 :<></>}
-                            {vulnerabilidades[4] === 0 ? <p>No se han encontrado vulnerabilidades en este apartado</p>:""}
+                            {vulnerabilidades[4] === 0 ? <p>{notfound}</p>:""}
                         </div>
                     </div>
                     <div className="conjunto">
                         <div className="fase">
-                            <h3>Accesibilidad</h3>
+                            <h3>{titulos[5]}</h3>
                         </div>
                         <div className="resultado">
                             {buscar("remoto").length !==0 ?
-                                <>{buscar("remoto").respuesta === "Sí" ? <p><div>¡Cuidado! Tu dispositivo es accesible de manera remota, por lo que un atacante podría llegar a controlar tu dispositivo a distancia.</div>
-                                    <button className="popup" onClick={()=>this.popUp("15")}> Ver consejo de buenas prácticas de seguridad
-                                        <span className="popuptext" id="15">Si es posible, desactiva el acceso remoto en caso de que no vayas a utilizarlo.</span>
+                                <>{buscar("remoto").respuesta === buscar("remoto").opciones[0] ? <p><div>{buscar("remoto").warning}</div>
+                                    <button className="popup" onClick={()=>this.popUp("15")}> {vercons}
+                                        <span className="popuptext" id="15">{buscar("remoto").consejo}</span>
                                     </button></p> : ""}</>
                                 :<></>}
                             {buscar("dobleaut").length !==0 ?
-                                <>{buscar("dobleaut").respuesta === "No" ? <p><div>¡Cuidado! Tu dispositivo no cuenta con factor de doble autenticación. Este es una barrera para frenar a un atacante que se haga con tus credenciales de acceso.</div>
-                                    <button className="popup" onClick={()=>this.popUp("16")}> Ver consejo de buenas prácticas de seguridad
-                                        <span className="popuptext" id="16">Si es posible, actívalo en los ajustes de tu dispositivo.</span>
+                                <>{buscar("dobleaut").respuesta === buscar("dobleaut").opciones[1] ? <p><div>{buscar("dobleaut").warning}</div>
+                                    <button className="popup" onClick={()=>this.popUp("16")}> {vercons}
+                                        <span className="popuptext" id="16">{buscar("dobleaut").consejo}</span>
                                     </button></p> : ""}</>:<></>}
                             {buscar("opensource").length !==0 ?
-                                <>{buscar("opensource").respuesta === "No" ? <p><div>¡Cuidado! La app de tu dispositivo no está basada en open source. Las aplicaciones de código abierto están respaldas por la comunidad y es más improbable encontrar en ellas fallos de seguridad.</div></p> : ""}</>:<></>}
+                                <>{buscar("opensource").respuesta === buscar("opensource").opciones[1] ? <p><div>{buscar("opensource").warning}</div></p> : ""}</>:<></>}
                             {buscar("web").length !==0 ?
-                                <>{buscar("web").respuesta === "Sí, pero no utiliza HTTPS" ? <p><div>¡Cuidado! Las web que no utilizan el protocolo HTTPS son muy vulnerables hoy en día.</div>
-                                    <button className="popup" onClick={()=>this.popUp("18")}> Ver consejo de buenas prácticas de seguridad
-                                        <span className="popuptext" id="18">Evita acceder via web a la aplicación en la medida de lo posible</span>
+                                <>{buscar("web").respuesta === buscar("web").opciones[1] ? <p><div>{buscar("web").warning}</div>
+                                    <button className="popup" onClick={()=>this.popUp("18")}> {vercons}
+                                        <span className="popuptext" id="18">{buscar("web").consejo}</span>
                                     </button></p> : ""}</>:<></>}
-                            {vulnerabilidades[5] === 0 ? <p>No se han encontrado vulnerabilidades en este apartado</p>:""}
+                            {vulnerabilidades[5] === 0 ? <p>{notfound}</p>:""}
                         </div>
                     </div>
                 </div>
