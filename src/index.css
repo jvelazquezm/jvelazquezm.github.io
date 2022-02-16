@@ -45,8 +45,8 @@ body {
   font-family: "Arial Black", sans-serif;
   font-size: 3em;
   letter-spacing: -1px;
-  color: var(--oscuro);
-  /*color:var(--masoscuro);*/
+  /*color: var(--oscuro);*/
+  color:var(--masoscuro);
   text-align: center;
   width: 100%;
 }
@@ -55,8 +55,8 @@ body {
   font-family: "Arial Black", sans-serif;
   font-size: 2em;
   letter-spacing: -1px;
-  color: var(--claro);
-  /*color: var(--oscuro);*/
+  /*color: var(--claro);*/
+  color: var(--oscuro);
   text-align: justify;
 }
 
@@ -109,8 +109,8 @@ width: 100vw;
   display: flex;
   flex-direction: row;
   background-color: var(--medio);
-  /*background-image: url("Fondo\ rayuela\ editado.png");
-  background-size: 100%;*/
+  background-image: url("Fondo\ rayuela\ editado.png");
+  background-size: 100%;
   margin:2%;
   align-content: center;
   padding-left: 5%;
@@ -146,8 +146,8 @@ width: 100vw;
   font-family: "Arial Black", sans-serif;
   font-size: 2em;
   letter-spacing: -1px;
-  color: var(--claro);
-  /*color: var(--oscuro);*/
+  /*color: var(--claro);*/
+  color: var(--oscuro);
   text-align: center; 
   margin-top: auto;
   margin-bottom: auto;
@@ -198,8 +198,8 @@ width: 100vw;
   text-align:justify;
   color:var(--oscuro);
   background-color: var(--medio);
-  /*background-image: url(Fondo\ rayuela\ editado.png);
-  background-size: 100%;*/
+  background-image: url(Fondo\ rayuela\ editado.png);
+  background-size: 100%;
   margin:2%;
   padding-left: 5%;
   padding-right: 5%;
@@ -214,6 +214,7 @@ width: 100vw;
   text-align:justify;
   color:var(--oscuro);
   background-color: var(--medio);
+  background-image: url(Fondo\ rayuela\ editado.png);
   margin:2%;
   padding-left: 5%;
   padding-right: 5%;
@@ -269,24 +270,25 @@ width: 100vw;
 .fase{
   align-self: center;
   width: 30%;
-  color:var(--oscuro);
+  /*color:var(--oscuro);*/
+  color:var(--masoscuro);
   text-align: left;
   overflow: hidden;
 }
 .resultado{
   align-self: center;
   width: 70%;
-  color: var(--claro);
-  /*color:var(--oscuro);*/
+  /*color: var(--claro);*/
+  color:var(--oscuro);
 }
 
 
 .cambiar{
   border:none;
-  background:  var(--medio);
-  /*background: var(--claro);*/
-  color: var(--claro);
-  /*color: var(--oscuro);*/
+  /*background:  var(--medio);*/
+  background: var(--claro);
+  /*color: var(--claro);*/
+  color: var(--oscuro);
   font-family: "Arial Black", sans-serif;
   font-size: 1em;
   letter-spacing: -1px;
@@ -319,7 +321,8 @@ width: 100vw;
   margin-left:auto;
 }
 .radar{
-  background: var(--medio);
+  /*background: var(--medio);*/
+  background: transparent;
 }
 /*POP UP*/
 .popup {
@@ -333,8 +336,10 @@ width: 100vw;
 
 
   border:none;
-  background:  var(--medio);
-  color: var(--claro);
+  /*background:  var(--medio);*/
+  background:  transparent;
+  /*color: var(--claro);*/
+  color: var(--oscuro);
   font-family: "Arial Black", sans-serif;
   font-size: 1em;
   letter-spacing: -1px;
@@ -399,7 +404,7 @@ width: 100vw;
   border-radius: 50%;
  
   border:none;
-  background:  var(--medio);
+  background:  var(--claro);
   font-family: "Arial Black", sans-serif;
   font-size: 0.5em;
 
@@ -466,7 +471,7 @@ width: 100vw;
   border-radius: 50%;
  
   border:none;
-  background:  var(--medio);
+  background:  var(--claro);
   font-family: "Arial Black", sans-serif;
   font-size: 0.5em;
 
@@ -527,14 +532,14 @@ width: 100vw;
 
 }
 ::-webkit-scrollbar-track{
-  background: var(--medio);
-  /*background: var(--claro);*/
+  /*background: var(--medio);*/
+  background: transparent;
 }
 ::-webkit-scrollbar-thumb{
   border-radius: 25px;
   background: var(--oscuro);
-  border: 2px solid var(--medio);
-  /*border:2px solid var(--claro);*/
+  /*border: 2px solid var(--medio);*/
+  border:2px solid var(--claro);
 }
 
 .print{
@@ -547,9 +552,7 @@ width: 100vw;
   all:unset;
 
 }
-/* .label{
-  border-style: solid;
-} */
+
 
 
 

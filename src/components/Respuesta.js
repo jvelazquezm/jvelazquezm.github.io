@@ -19,7 +19,7 @@ export default class Respuesta extends React.Component {
 					<input className="input" type = "text" 
 						value = {respuesta || ''} 
 						onChange ={(e)=> this.props.responder(index, e.target.value)}
-						placeholder ="Escriba aquí su respuesta"
+						placeholder ="Type your answer here"
 						onKeyDown={this.handleKeyDown}
 					/>
 				:

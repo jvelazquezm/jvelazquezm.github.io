@@ -6,7 +6,6 @@ export default class Pregunta extends React.Component {
 	render(){
 		const {pregunta,index, ayuda} = this.props;
 		return <div className="pregunta">
-		{/* <div className="titulo">Pregunta {props.index +1}</div> */}
 		<div className="question">{pregunta}
 		
 		{ (ayuda !== undefined)  ?

@@ -4,11 +4,10 @@ import Encabezado from './Encabezado';
 import Cuerpo from './Cuerpo';
 import Navegacion from './Navegacion';
 import Resultados from './Resultados';
-import Results from './Results';
 import Vulnerabilidades from './Vulnerabilidades';
 import Presentacion from './Presentacion'
-import {pasos} from '../assets/pasos.js';
-//import {pasos} from '../assets/pasos_ingles.js';
+//import {pasos} from '../assets/pasos.js';
+import {pasos} from '../assets/pasos_ingles.js';
 
 export default class App extends React.Component {
 
@@ -28,7 +27,7 @@ export default class App extends React.Component {
       revisando:false,
       detallado:false,
       vulnerabilidades: [0,0,0,0,0,0],
-      titulos:["Firmware","Comunicaciones","Categoría","Tratamiento de datos","Interfaz física","Accesibilidad","App Metodología","Pregunta ","Resultados","Vulnerabilidades encontradas"],
+      titulos:["Firmware","Communications","Category","Data treatment","Physical Interface","Accesibility","RAYUELA","Question ","Results","Vulnerabilities found"],
 
       height: window.innerHeight, 
       width: window.innerWidth
@@ -105,11 +104,16 @@ export default class App extends React.Component {
   }
 
   enviar = () => {
-    if (window.confirm("¿Estás seguro de que quieres enviar tus respuestas? No podrás modficiar la categoría de tu dispositivo.")){
+    if (window.confirm("Are you sure you want to send your answers? You will not be able to modify the category of your device.")){
       this.setState({
         terminado: true
       });
     } 
+  }
+  revisarvolver = () => {
+      this.setState({
+        terminado: true
+      });
   }
 
   comprobar = () => {
@@ -132,7 +136,7 @@ export default class App extends React.Component {
 
     const preguntasSinRespuesta = pasos.filter((paso,i) => (paso.respuesta === "" || paso.respuesta.length === 0))
     if(preguntasSinRespuesta.length !== 0)
-      window.alert("Las siguientes preguntas no se han respondido:"
+      window.alert("The following questions have not been answered:"
       + preguntasSinRespuesta.map(paso => {return "\n"+paso.pregunta})
       )
     else{
@@ -244,6 +248,7 @@ export default class App extends React.Component {
             enviado={enviado}
             detallar ={this.detallar}
             volver ={this.volver}
+            revisarvolver ={this.revisarvolver}
             comprobar={this.comprobar}
             comenzar={this.comenzar}
             detallado={detallado}
@@ -254,6 +259,7 @@ export default class App extends React.Component {
 						buscar={this.buscar}
 						detallado={detallado}
 						width={width}
+            titulos={titulos}
           />
       </div>
     );

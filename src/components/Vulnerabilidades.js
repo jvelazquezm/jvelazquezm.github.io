@@ -10,15 +10,15 @@ export default class Resultados extends React.Component {
                 labels: [this.props.titulos[0], this.props.titulos[1], this.props.titulos[2], this.props.titulos[3], this.props.titulos[4], this.props.titulos[5]],
                 datasets: [{
                     type: 'radar',
-                    label: 'Nº de vulnerabilidades',
+                    label: 'Number of vulnerabilities',
                     data: [this.props.vulnerabilidades[0], this.props.vulnerabilidades[1], this.props.vulnerabilidades[2], this.props.vulnerabilidades[3], this.props.vulnerabilidades[4], this.props.vulnerabilidades[5]],
                     backgroundColor: [
-                        'rgb(238,251,251,0.8)',
-                        'rgb(238,251,251,0.8)',
-                        'rgb(238,251,251,0.8)',
-                        'rgb(238,251,251,0.8)',
-                        'rgb(238,251,251,0.8)',
-                        'rgb(238,251,251,0.8)'
+                        'rgb(122,191,228,0.8)',
+                        'rgb(122,191,228,0.8)',
+                        'rgb(122,191,228,0.8)',
+                        'rgb(122,191,228,0.8)',
+                        'rgb(122,191,228,0.8)',
+                        'rgb(122,191,228,0.8)'
                     ],
                     borderColor: [
                         '#203647',
@@ -44,7 +44,7 @@ export default class Resultados extends React.Component {
                         beginAtZero:true,
                         ticks: {
                             stepSize:1,
-                            backdropColor:'#7abfe4',
+                            backdropColor:'#EEFBFB',
                             color:'black'
                           },
                     title: {
@@ -78,8 +78,8 @@ export default class Resultados extends React.Component {
       }
       render() {
         const {detallado,width,buscar,vulnerabilidades,titulos} = this.props;
-        const notfound = "No se han encontrado vulnerabilidades en este apartado";
-        const vercons = "Ver consejo de buenas prácticas de seguridad"
+        const notfound = "No vulnerabilities were found in this section";
+        const vercons = "See recommendation on good security practices";
         let disposicion;
         width > 1000 ? disposicion="horiz" : disposicion="vert";
         return (
