@@ -1,23 +1,24 @@
 {
   "files": {
-    "main.css": "/static/css/main.4efae0d3.chunk.css",
-    "main.js": "/static/js/main.34317560.chunk.js",
-    "main.js.map": "/static/js/main.34317560.chunk.js.map",
+    "main.css": "/static/css/main.91af988d.chunk.css",
+    "main.js": "/static/js/main.a05193fd.chunk.js",
+    "main.js.map": "/static/js/main.a05193fd.chunk.js.map",
     "runtime-main.js": "/static/js/runtime-main.f07277af.js",
     "runtime-main.js.map": "/static/js/runtime-main.f07277af.js.map",
-    "static/js/2.5da25bd1.chunk.js": "/static/js/2.5da25bd1.chunk.js",
-    "static/js/2.5da25bd1.chunk.js.map": "/static/js/2.5da25bd1.chunk.js.map",
+    "static/js/2.8a138b6c.chunk.js": "/static/js/2.8a138b6c.chunk.js",
+    "static/js/2.8a138b6c.chunk.js.map": "/static/js/2.8a138b6c.chunk.js.map",
     "static/js/3.d6839233.chunk.js": "/static/js/3.d6839233.chunk.js",
     "static/js/3.d6839233.chunk.js.map": "/static/js/3.d6839233.chunk.js.map",
     "index.html": "/index.html",
-    "static/css/main.4efae0d3.chunk.css.map": "/static/css/main.4efae0d3.chunk.css.map",
-    "static/js/2.5da25bd1.chunk.js.LICENSE.txt": "/static/js/2.5da25bd1.chunk.js.LICENSE.txt",
+    "static/css/main.91af988d.chunk.css.map": "/static/css/main.91af988d.chunk.css.map",
+    "static/js/2.8a138b6c.chunk.js.LICENSE.txt": "/static/js/2.8a138b6c.chunk.js.LICENSE.txt",
+    "static/media/index.css": "/static/media/Fondo rayuela editado.88b9898a.png",
     "static/media/question-circle-solid.cce4b359.svg": "/static/media/question-circle-solid.cce4b359.svg"
   },
   "entrypoints": [
     "static/js/runtime-main.f07277af.js",
-    "static/js/2.5da25bd1.chunk.js",
-    "static/css/main.4efae0d3.chunk.css",
-    "static/js/main.34317560.chunk.js"
+    "static/js/2.8a138b6c.chunk.js",
+    "static/css/main.91af988d.chunk.css",
+    "static/js/main.a05193fd.chunk.js"
   ]
 }
