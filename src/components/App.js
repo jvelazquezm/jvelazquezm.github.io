@@ -27,7 +27,7 @@ export default class App extends React.Component {
       revisando:false,
       detallado:false,
       vulnerabilidades: [0,0,0,0,0,0],
-      titulos:["Firmware","Communications","Category","Data treatment","Physical Interface","Accesibility","RAYUELA","Question ","Results","Vulnerabilities found"],
+      titulos:["Firmware","Communications","Category","Data treatment","Physical Interface","Accesibility","RAYUELA","Question ","Answers","Vulnerabilities found"],
 
       height: window.innerHeight, 
       width: window.innerWidth

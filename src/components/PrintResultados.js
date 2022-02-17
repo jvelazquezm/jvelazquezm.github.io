@@ -5,7 +5,7 @@ export default class Resultados extends React.Component {
         const {revisar,buscar,titulos} = this.props;
         return (
             <div className="resultados2" >
-                    <h1 className="h1res">Respuestas</h1>
+                    <h1 className="h1res">Answers</h1>
                 <div className="conjunto1">
                 <div className="fase">
                         <h3>{titulos[0]}</h3>

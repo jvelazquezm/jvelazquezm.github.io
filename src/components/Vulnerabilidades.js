@@ -55,18 +55,19 @@ export default class Resultados extends React.Component {
                       },
                       pointLabels: {
                         font: {
-                            size: 16
+                            size: 14
                         },
                         color: 'black',
-                        fontSize: 100
+
                       }
                     },
                 },
                 plugins:{
                     legend:{
+                        position:'top',
                         labels:{
                             font: {
-                                size: 24
+                                size: 16
                             },
                             color:'black',
                         }
