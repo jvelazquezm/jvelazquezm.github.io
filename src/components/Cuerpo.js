@@ -9,7 +9,6 @@ export default class Cuerpo extends React.Component {
 		return <div className="cuerpo">
       <div className="preguntayattachment">
         <Pregunta 
-            index={index}
             pregunta={paso.pregunta}
             ayuda={paso.ayudapregunta}
           />

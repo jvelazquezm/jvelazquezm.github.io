@@ -1,5 +1,4 @@
 import React from 'react';
-import { Radar } from 'react-chartjs-2';
 export default class Resultados extends React.Component {
 
     constructor(props){
@@ -77,7 +76,7 @@ export default class Resultados extends React.Component {
         };
       }
       render() {
-        const {detallado,width,buscar,vulnerabilidades,titulos} = this.props;
+        const {buscar,vulnerabilidades,titulos} = this.props;
         const notfound = "No vulnerabilities were found in this section";
         const vercons = "See recommendation on good security practices";
         return (

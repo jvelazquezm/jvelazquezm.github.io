@@ -13,3 +13,7 @@
 11. Añadido botón para imprimir el formulario de respuestas y el de vulnerabilidades
 
 12. La aplicación pasa de ejecutarse en local a estar subida mediante github pages a la url https://jvelazquezm.github.io/
+13. Añadidos pop ups de ayuda al usuario con algunas preguntas más técnicas
+14. Ahora la aplicación se encuentra traducida al inglés
+15. Cambios en el diseño de la aplicación, ahora el fondo utilizado es de RAYUELA
+16. Cambiado título e icono de la aplicación

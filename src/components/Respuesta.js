@@ -46,7 +46,7 @@ export default class Respuesta extends React.Component {
 								</label>
 								{ (ayuda !== [] && pop.length !== 0)  ?
 									<button className="popup2" onClick={()=>this.popUp(i)}>
-										<img src={help}/>
+										<img alt="" src={help}/>
 										<span className="popuptext" id={i}>{paso.ayuda[i]}</span>
 									</button>
 									: <></>
@@ -67,7 +67,7 @@ export default class Respuesta extends React.Component {
 								</label>
 								{ (ayuda !== [] && pop.length !== 0)  ?
 									<button className="popup2" onClick={()=>this.popUp(i)}>
-										<img src={help}/>
+										<img alt="" src={help}/>
 										<span className="popuptext" id={i}>{paso.ayuda[i]}</span>
 									</button>
 									: <></>
@@ -101,7 +101,7 @@ export default class Respuesta extends React.Component {
 								</label>
 								{ (ayuda !== [] && pop.length !== 0) ?
 									<button className="popup2" onClick={()=>this.popUp(i)}>
-										<img src={help}/>
+										<img alt="" src={help}/>
 										<span className="popuptext" id={i}>{paso.ayuda[i]}</span>
 									</button>
 									: <></>
@@ -122,7 +122,7 @@ export default class Respuesta extends React.Component {
 								</label>
 								{ (ayuda !== [] && pop.length !== 0)  ?
 									<button className="popup2" onClick={()=>this.popUp(i)}>
-										<img src={help}/>
+										<img alt="" src={help}/>
 										<span className="popuptext" id={i}>{paso.ayuda[i]}</span>
 									</button>
 									: <></>

@@ -15,7 +15,7 @@ export default class Navegacion extends React.Component {
 							{(index === (0) || revisando === true) ? <></>: <button className="actions" onClick={this.clickAnterior}>Previous</button> }
 							{(index === (pasos.length - 1) || revisando === true) ? <></>: <>{((pasos[index].respuesta !== []) && (pasos[index].respuesta.length !== 0)) ? <button className="actions" onClick={this.clickSiguiente}>Next</button> : <button className="disabled" disabled>Next</button>}</>}
 							{(index !== (pasos.length - 1) || revisando === true) ? <></>: <>{((pasos[index].respuesta !== []) && (pasos[index].respuesta.length !== 0)) ? <button className="actions" onClick={this.props.enviar}>Submit</button> : <button className="disabled" disabled>Submit</button>}</>}
-							{(revisando === true) ? <button className="actions" onClick={this.props.revisarvolver}>Return</button>: <></>}
+							{(revisando === true) ? <button className="actions" onClick={revisarvolver}>Return</button>: <></>}
 					</>
 					: 
 					enviado === false ?

@@ -252,12 +252,9 @@ export default class App extends React.Component {
             comprobar={this.comprobar}
             comenzar={this.comenzar}
             detallado={detallado}
-            detallar ={this.detallar}
             revisar={this.revisar}
             buscar={this.buscar}
             vulnerabilidades={vulnerabilidades}
-						buscar={this.buscar}
-						detallado={detallado}
 						width={width}
             titulos={titulos}
           />
