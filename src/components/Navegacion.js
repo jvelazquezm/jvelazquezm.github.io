@@ -2,16 +2,23 @@ import React from 'react';
 import ReactToPrint from 'react-to-print';
 import PrintResultados from './PrintResultados';
 import PrintVulnerabilidades from './PrintVulnerabilidades';
+import house from '../assets/icons8-home.svg';
 
 export default class Navegacion extends React.Component {
 	render() {
 		const {index,pasos,revisando,comienzo,terminado,enviado,detallado,revisar,buscar, vulnerabilidades, width,titulos,revisarvolver} = this.props;
 		return <div className="actionbar">
 			{comienzo === false ?
+			<>
+				<button className="actions" onClick={() => window.location.href='https://soniasoleracotanilla.github.io/RAYUELA/'}>Back Home</button>
 				<button className="actions" onClick={this.props.comenzar}>Start</button>
+			</>
 				: 
 				terminado === false ? 
 					<>
+							<button className="actions2" onClick={() => window.location.href='https://soniasoleracotanilla.github.io/RAYUELA/'}>
+								<img src={house} alt=""></img>
+							</button>
 							{(index === (0) || revisando === true) ? <></>: <button className="actions" onClick={this.clickAnterior}>Previous</button> }
 							{(index === (pasos.length - 1) || revisando === true) ? <></>: <>{((pasos[index].respuesta !== []) && (pasos[index].respuesta.length !== 0)) ? <button className="actions" onClick={this.clickSiguiente}>Next</button> : <button className="disabled" disabled>Next</button>}</>}
 							{(index !== (pasos.length - 1) || revisando === true) ? <></>: <>{((pasos[index].respuesta !== []) && (pasos[index].respuesta.length !== 0)) ? <button className="actions" onClick={this.props.enviar}>Submit</button> : <button className="disabled" disabled>Submit</button>}</>}
@@ -29,6 +36,9 @@ export default class Navegacion extends React.Component {
 							titulos={titulos}
                     	/>
                     	</div>
+						<button className="actions2" onClick={() => window.location.href='https://soniasoleracotanilla.github.io/RAYUELA/'}>
+								<img src={house} alt=""></img>
+						</button>
 						<>
 							<ReactToPrint
 								trigger={() => {
@@ -39,6 +49,7 @@ export default class Navegacion extends React.Component {
 								content={() => this.componentRef}
 							/>
 						</>
+
 						<button className="actions" onClick={this.props.comprobar}>Submit answers</button>
 					</>
 						:
@@ -53,6 +64,9 @@ export default class Navegacion extends React.Component {
 									titulos={titulos}
 								/>
 							</div>
+							<button className="actions2" onClick={() => window.location.href='https://soniasoleracotanilla.github.io/RAYUELA/'}>
+								<img src={house} alt=""></img>
+							</button>
 							<button className="actions" onClick={this.props.volver}>Return</button>
 							<>
 								<ReactToPrint

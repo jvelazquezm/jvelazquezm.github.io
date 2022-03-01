@@ -91,6 +91,29 @@ body {
   box-shadow: 5px 40px -10px rgba(0,0,0,0.57);
   transition: all 0.4s ease 0s;
 }
+.actions2 {
+  letter-spacing: 1px;
+  font-family: "Arial Black", sans-serif;
+  color: var(--oscuro) !important;
+  text-transform: uppercase;
+  text-decoration: none;
+  background:  var(--claro);
+  padding: 10px;
+  display: inline-block;
+  border: none;
+  width: min-content;
+  
+}
+.actions2:hover {
+  background: var(--oscuro);
+  color:var(--claro) !important;
+  letter-spacing: 1px;
+  -webkit-box-shadow: 0px 5px 40px -10px rgba(0,0,0,0.57);
+  -moz-box-shadow: 0px 5px 40px -10px rgba(0,0,0,0.57);
+  box-shadow: 5px 40px -10px rgba(0,0,0,0.57);
+  transition: all 0.4s ease 0s;
+}
+
 .disabled{
 letter-spacing: 1px;
 font-family: "Arial Black", sans-serif;
