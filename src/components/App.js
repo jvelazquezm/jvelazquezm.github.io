@@ -119,7 +119,7 @@ export default class App extends React.Component {
   comprobar = () => {
     const {pasos} = this.state;
     const vulnerabilidades = [0,0,0,0,0,0]
-    if (this.buscar("actualizado").respuesta === this.buscar("actualizado").opciones[1] || this.buscar("actualizado").respuesta === this.buscar("actualizado").opciones[1]) vulnerabilidades[0]++;
+    if (this.buscar("actualizado").respuesta === this.buscar("actualizado").opciones[1] || this.buscar("actualizado").respuesta === this.buscar("actualizado").opciones[2]) vulnerabilidades[0]++;
     if (this.buscar("coms").respuesta.includes("RFID")) vulnerabilidades[1]++;
     if (this.buscar("seguridad").respuesta ===this.buscar("seguridad").opciones[3] || this.buscar("seguridad").respuesta === this.buscar("seguridad").opciones[4]) vulnerabilidades[1]++;
     if (this.buscar("directamente").respuesta === this.buscar("directamente").opciones[0]) vulnerabilidades[1]++;
