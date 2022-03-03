@@ -26,10 +26,10 @@ exports.pasos =   [
     "pregunta":"¿Qué protocolos de comunicación utiliza el dispositivo?",
     "ayudapregunta":"Puedes buscar esta información en Internet, en la web del fabricante o en el manual del dispositivo",
     "respuesta":[],
-    "opciones":["WiFi","BLE","6LoWPAN","ZigBee","RFID","NFC","Z-Wave","Otros"],
+    "opciones":["WiFi","Bluetooth LE","6LoWPAN","ZigBee","RFID","NFC","Z-Wave","Otros"],
     "ayuda":
     ["",
-    "Son las siglas de Bluetooth Low Energy. Si tu dispositivo utiliza Bluetooth, selecciona también esta opción",
+    "Son las siglas de Bluetooth Low Energy. Si tu dispositivo utiliza otras versiones de Bluetooth, selecciona también esta opción",
     "",
     "Es un protocolo que se emplea para interconectar dispositivos de la Internet de las Cosas a través de un hub o gestor de la red, sin necesidad de conectarse al router. Si tu dispositivo cumple con estas características es probable que emplee este protocolo.",
     "Es un protocolo que se implementa en los dispositivos mediante unas pegatinas identificadores, de manera similar a los QR. Si tu dispositivo cuenta con una de estas, probablemente utilice RFID",
@@ -191,7 +191,9 @@ exports.pasos =   [
     "fase":"Especifica",
     "foto":"15.png",
     "categoria":["Gestión de recursos de energía","Entretenimiento","Salud y bienestar","Utilidad para la red","Interfaz máquina humano","Ayuda para los cuidados de la casa","Seguridad","Sensores"],
-    "alias":"boton"
+    "alias":"boton",
+    "warning":"¡Cuidado! Tu dispositivo tiene micrófono pero no un botón para silenciarlo.",
+    "consejo":"Apaga tu dispositivo cuando no lo estés usando"
   },
   {
     "index":15,

@@ -26,10 +26,10 @@ exports.pasos =   [
     "pregunta":"Which communication protocols does the device use?",
     "ayudapregunta":"You can look for this information on the Internet, on the manufacturer's website, or in the device's manual",
     "respuesta":[],
-    "opciones":["WiFi","BLE","6LoWPAN","ZigBee","RFID","NFC","Z-Wave","Otros"],
+    "opciones":["WiFi","Bluetooth LE","6LoWPAN","ZigBee","RFID","NFC","Z-Wave","Otros"],
     "ayuda":
     ["",
-    "This stands for Bluetooth Low Energy. If your device uses Bluetooth, please select this option as well.",
+    "This stands for Bluetooth Low Energy. If your device uses other versions of Bluetooth, select this option as well.",
     "",
     "It is a protocol used to interconnect Internet of Things devices through a hub or network manager, without the need to connect to the router. If your device meets these characteristics, it is likely to use this protocol.",
     "It is a protocol that is implemented on devices via identifier stickers, similar to QR. If your device has one of these, it probably uses RFID",
@@ -191,7 +191,9 @@ exports.pasos =   [
     "fase":"Especifica",
     "foto":"15.png",
     "categoria":["Energy and resource management","Entertainment","Health and wellness","Networking and utilities","Human-machine interface","Household appliances and kitchen aids","Security and safety","Sensors"],
-    "alias":"boton"
+    "alias":"boton",
+    "warning":"Warning! Your device has a microphone but not a button to mute it.",
+    "consejo":"Turn off your device when you are not using it"
   },
   {
     "index":15,

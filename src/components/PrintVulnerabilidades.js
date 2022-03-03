@@ -160,6 +160,19 @@ export default class Resultados extends React.Component {
                             {buscar("actuadores").length !==0 ?
                                 <>{buscar("actuadores").respuesta === buscar("actuadores").opciones[0] ? <p><div>{buscar("actuadores").warning}</div></p> : ""}</>
                                 :<></>}
+                            {buscar("microcam").length !==0 ?
+                                <>{buscar("microcam").respuesta.includes(buscar("microcam").opciones[0]) ? 
+                                    <>{(!buscar("boton").respuesta.includes(buscar("boton").opciones[3])) ? 
+                                    <p>
+                                        <div>{buscar("boton").warning}</div>
+                                        <button className="popup" onClick={()=>this.popUp("14")}> {vercons}
+                                            <span className="popuptext" id="14">{buscar("boton").consejo}</span>
+                                        </button>
+                                    </p> 
+                                    
+                                    : ""}</>
+                                :<></>}</>
+                            :<></>}
                             {vulnerabilidades[4] === 0 ? <p>{notfound}</p>:""}
                         </div>
                     </div>

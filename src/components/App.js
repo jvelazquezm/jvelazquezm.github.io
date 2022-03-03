@@ -129,6 +129,7 @@ export default class App extends React.Component {
     if (this.buscar("microcam").length !==0 && this.buscar("microcam").respuesta.includes(this.buscar("microcam").opciones[1])) vulnerabilidades[4]++;
     if (this.buscar("microcam").length !==0 && this.buscar("microcam").respuesta.includes(this.buscar("microcam").opciones[0])) vulnerabilidades[4]++;
     if (this.buscar("actuadores").length !==0 && this.buscar("actuadores").respuesta === this.buscar("actuadores").opciones[0]) vulnerabilidades[4]++;
+    if (this.buscar("microcam").length !==0 && this.buscar("microcam").respuesta.includes(this.buscar("microcam").opciones[0]) && !this.buscar("boton").respuesta.includes(this.buscar("boton").opciones[3])) vulnerabilidades[4]++;
     if (this.buscar("remoto").length !==0 && this.buscar("remoto").respuesta === this.buscar("remoto").opciones[0]) vulnerabilidades[5]++;
     if (this.buscar("dobleaut").length !==0 && this.buscar("dobleaut").respuesta === this.buscar("dobleaut").opciones[1]) vulnerabilidades[5]++;
     if (this.buscar("opensource").length !==0 && this.buscar("opensource").respuesta === this.buscar("opensource").opciones[1]) vulnerabilidades[5]++;

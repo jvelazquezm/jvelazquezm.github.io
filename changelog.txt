@@ -18,3 +18,4 @@
 15. Cambios en el diseño de la aplicación, ahora el fondo utilizado es de RAYUELA
 16. Cambiado título e icono de la aplicación
 17. Añadido botón de volver a la página principal
+18. Añadida vulnerabilidad si el dispositivo tiene microfono pero no boton para silenciarlo
