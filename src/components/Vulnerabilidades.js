@@ -174,7 +174,7 @@ export default class Resultados extends React.Component {
                                 :<></>}
                             {buscar("microcam").length !==0 ?
                                 <>{buscar("microcam").respuesta.includes(buscar("microcam").opciones[0]) ? 
-                                    <>{(!buscar("boton").respuesta.includes(this.buscar("boton").opciones[3])) ? 
+                                    <>{(!buscar("boton").respuesta.includes(buscar("boton").opciones[3])) ? 
                                     <p>
                                         <div>{buscar("boton").warning}</div>
                                         <button className="popup" onClick={()=>this.popUp("14")}> {vercons}
