@@ -3,6 +3,7 @@ import ReactToPrint from 'react-to-print';
 import PrintResultados from './PrintResultados';
 import PrintVulnerabilidades from './PrintVulnerabilidades';
 import house from '../assets/icons8-home.svg';
+import restart from '../assets/icons8-restart.svg';
 
 export default class Navegacion extends React.Component {
 	render() {
@@ -18,6 +19,9 @@ export default class Navegacion extends React.Component {
 					<>
 							<button className="actions2" onClick={() => window.location.href='https://soniasoleracotanilla.github.io/RAYUELA/'}>
 								<img src={house} alt=""></img>
+							</button>
+							<button className="actions2" onClick={this.props.reiniciar}>
+								<img src={restart} alt=""></img>
 							</button>
 							{(index === (0) || revisando === true) ? <></>: <button className="actions" onClick={this.clickAnterior}>Previous</button> }
 							{(index === (pasos.length - 1) || revisando === true) ? <></>: <>{((pasos[index].respuesta !== []) && (pasos[index].respuesta.length !== 0)) ? <button className="actions" onClick={this.clickSiguiente}>Next</button> : <button className="disabled" disabled>Next</button>}</>}
@@ -38,6 +42,9 @@ export default class Navegacion extends React.Component {
                     	</div>
 						<button className="actions2" onClick={() => window.location.href='https://soniasoleracotanilla.github.io/RAYUELA/'}>
 								<img src={house} alt=""></img>
+						</button>
+						<button className="actions2" onClick={this.props.reiniciar}>
+								<img src={restart} alt=""></img>
 						</button>
 						<>
 							<ReactToPrint
@@ -66,6 +73,9 @@ export default class Navegacion extends React.Component {
 							</div>
 							<button className="actions2" onClick={() => window.location.href='https://soniasoleracotanilla.github.io/RAYUELA/'}>
 								<img src={house} alt=""></img>
+							</button>
+							<button className="actions2" onClick={this.props.reiniciar}>
+								<img src={restart} alt=""></img>
 							</button>
 							<button className="actions" onClick={this.props.volver}>Return</button>
 							<>

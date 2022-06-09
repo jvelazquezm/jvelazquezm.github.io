@@ -15,6 +15,9 @@ body {
   -webkit-print-color-adjust: exact !important;
 
 }
+p{
+  margin: 1em 0;
+}
 .app{
   display: flex;
   flex-direction: column;

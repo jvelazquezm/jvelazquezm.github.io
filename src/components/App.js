@@ -8,31 +8,35 @@ import Vulnerabilidades from './Vulnerabilidades';
 import Presentacion from './Presentacion'
 //import {pasos} from '../assets/pasos.js';
 import {pasos} from '../assets/pasos_ingles.js';
+const estadoInicial = {
+  pasosiniciales : [
+    ...pasos
+  ],
+  pasos:[
+    ...pasos
+  ],
+  preguntaActual: 0,
+  comienzo : false,
+  terminado : false,
+  enviado:false,
+  revisando:false,
+  detallado:false,
+  vulnerabilidades: [0,0,0,0,0,0],
+  titulos:["Firmware","Communications","Category","Data treatment","Physical Interface","Accesibility","RAYUELA","Question ","Answers","Vulnerabilities found"],
+  height: window.innerHeight, 
+  width: window.innerWidth,
+
+}
 
 export default class App extends React.Component {
 
   constructor(props){
     super(props);
     this.state = {
-      pasosiniciales : [
-        ...pasos
-      ],
-      pasos:[
-        ...pasos
-      ],
-      preguntaActual: 0,
-      comienzo : false,
-      terminado : false,
-      enviado:false,
-      revisando:false,
-      detallado:false,
-      vulnerabilidades: [0,0,0,0,0,0],
-      titulos:["Firmware","Communications","Category","Data treatment","Physical Interface","Accesibility","RAYUELA","Question ","Answers","Vulnerabilities found"],
-
-      height: window.innerHeight, 
-      width: window.innerWidth
-    };
+      ...estadoInicial
+    }
   }
+
   componentDidMount() {
     // Additionally I could have just used an arrow function for the binding `this` to the component...
     window.addEventListener("resize", this.updateDimensions);
@@ -194,7 +198,22 @@ export default class App extends React.Component {
   buscar = (alias) => {
     const temporal = this.state.pasos.find(paso => paso.alias === alias) ||[];
       return temporal;
-}  
+  }  
+  reiniciar = () => {
+    let checks = this.state.pasos.map((paso) => {
+      return {...paso,
+      respuesta : paso.tipo === "Check" ? [] : ""}
+      });
+      let checks2 = this.state.pasosiniciales.map((paso) => {
+        return {...paso,
+        respuesta : paso.tipo === "Check" ? [] : ""}
+        });
+    this.setState({
+      ...estadoInicial,
+      pasos: checks,
+      pasosiniciales: checks2,
+  });
+  }  
   
 
   render(){
@@ -258,6 +277,7 @@ export default class App extends React.Component {
             vulnerabilidades={vulnerabilidades}
 						width={width}
             titulos={titulos}
+            reiniciar={this.reiniciar}
           />
       </div>
     );
