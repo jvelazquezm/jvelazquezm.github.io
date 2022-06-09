@@ -19,3 +19,4 @@
 16. Cambiado título e icono de la aplicación
 17. Añadido botón de volver a la página principal
 18. Añadida vulnerabilidad si el dispositivo tiene microfono pero no boton para silenciarlo
+19. Añadido boton para reiniciar la aplicacion
